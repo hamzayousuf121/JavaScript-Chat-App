@@ -1,0 +1,175 @@
+body,
+html {
+	height: 100%;
+	margin: 0;
+	background: #7f7fd5;
+	/* background: -webkit-linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+	background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5); */
+	background: linear-gradient(90deg,#e61eb6,#20007e);
+	background: -webkit-linear-gradient(90deg,#e61eb6,#20007e);
+}
+
+.chat {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.card {
+	height: 550px;
+	border-radius: 15px !important;
+	background-color: rgba(0, 0, 0, 0.4) !important;
+	background: linear-gradient(60deg,#e61eb6,#20007e);
+	background: -webkit-linear-gradient(60deg,#e61eb6,#20007e);
+}
+.input-group-append{
+    margin-left: 0;
+}
+.contacts_body {
+	padding: 0.75rem 0 !important;
+	overflow-y: auto;
+	white-space: nowrap;
+}
+.msg_card_body {
+	overflow-y: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px white; 
+	border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	/* background: red;  */
+	border-radius: 10px;
+	background: linear-gradient(60deg,#a71ee6,#7e0078);
+	background: -webkit-linear-gradient(60deg,#a71ee6,#7e0078);
+  }
+  
+.card-header {
+	border-radius: 15px 15px 0 0 !important;
+	background: linear-gradient(311deg,#e61eb6,#20007e);
+	border-bottom: 0 !important;
+}
+.card-footer {
+	border-radius: 0 0 15px 15px !important;
+	border-top: 0 !important;
+}
+.container {
+	align-content: center;
+}
+
+.type_msg {
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	border: 0 !important;
+	color: white !important;
+	height: 60px !important;
+	overflow-y: auto;
+}
+.type_msg:focus {
+	box-shadow: none !important;
+	outline: 0px !important;
+}
+
+.send_btn {
+	border-radius: 0 15px 15px 0 !important;
+	background-color: rgba(0, 0, 0, 0.3) !important;
+	border: 0 !important;
+	color: white !important;
+	cursor: pointer;
+}
+
+.contacts {
+	list-style: none;
+	padding: 0;
+}
+.contacts li {
+	width: 100% !important;
+	padding: 5px 10px;
+	margin-bottom: 15px !important;
+}
+.active {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.user_img {
+	height: 70px;
+	width: 70px;
+	border: 1.5px solid #f5f6fa;
+}
+.user_img_msg {
+	height: 40px;
+	width: 40px;
+	border: 1.5px solid #f5f6fa;
+}
+.img_cont {
+	position: relative;
+	height: 70px;
+	width: 70px;
+}
+.img_cont_msg {
+	height: 40px;
+	width: 40px;
+}
+
+.user_info {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 15px;
+}
+.user_info span {
+	font-size: 20px;
+	color: white;
+}
+.user_info p {
+	font-size: 10px;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.msg_cotainer {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+	border-radius: 25px;
+	background-color: #82ccdd;
+	padding: 10px;
+	position: relative;
+}
+.msg_cotainer_send {
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 10px;
+	border-radius: 25px;
+	background-color: #78e08f;
+	padding: 10px;
+	position: relative;
+}
+.msg_time {
+	position: absolute;
+	left: 0;
+	bottom: -15px;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 10px;
+}
+.msg_time_send {
+	position: absolute;
+	right: 0;
+	bottom: -15px;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 10px;
+}
+.msg_head {
+	position: relative;
+}
+@media (max-width: 576px) {
+	.contacts_card {
+		margin-bottom: 15px !important;
+    }
+    .card{
+        height: 90vh;
+    }
+}

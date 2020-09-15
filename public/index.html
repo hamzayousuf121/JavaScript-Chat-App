@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+  <title>Chat App</title>
+  <!-- MDB icon -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="css/chat.css">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+
+</head>
+
+<body>
+
+  <!--Navbar -->
+  <nav class="mb-1 navbar navbar-expand-md navbar-dark lighten-1 fixed">
+    <a class="navbar-brand" href="#"><img src="images/Saylani-logo.png" class="img-fluid z-depth-0 ml-5" width="150"
+        height="150" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+      <ul class="navbar-nav ">
+
+      </ul>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <h5 class="text-center text-white wellcome">Wellcome <span id="username"></span></h5>
+        <li class="nav-item avatar dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <img src="" id="userImg" class="rounded-circle z-depth-0" width="100" height="100" alt="avatar image">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" onclick="signOut()" href="javascript:void()">Log out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--/.Navbar -->
+
+  <!-- Start your project here-->
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-xl-8 col-12 chat">
+        <div class="card">
+          <div class="card-header msg_head">
+            <div class="d-flex bd-highlight">
+
+              <div class="user_info">
+                <span>Saylani Group</span>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body msg_card_body" id="mainCard">
+            <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                  class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">
+                Hi, how are you samim?
+                <span class="msg_time">8:40 AM, Today</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mb-4">
+              <div class="msg_cotainer_send">
+                Hi Khalid i am good tnx how about you?
+                <span class="msg_time_send">8:55 AM, Today</span>
+              </div>
+              <div class="img_cont_msg">
+                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+              </div>
+            </div>
+            <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                  class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">
+                I am good too, thank you for your chat template
+                <span class="msg_time">9:00 AM, Today</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mb-4">
+              <div class="msg_cotainer_send">
+                You are welcome
+                <span class="msg_time_send">9:05 AM, Today</span>
+              </div>
+              <div class="img_cont_msg">
+                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+              </div>
+            </div>
+            <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                  class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">
+                I am looking for your next templates
+                <span class="msg_time">9:07 AM, Today</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mb-4">
+              <div class="msg_cotainer_send">
+                Ok, thank you have a good day
+                <span class="msg_time_send">9:10 AM, Today</span>
+              </div>
+              <div class="img_cont_msg">
+                <img src="" class="rounded-circle user_img_msg">
+              </div>
+            </div>
+            <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                  class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">
+                Bye, see you
+                <span class="msg_time">9:12 AM, Today</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                  class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">
+                Bye, see you
+                <span class="msg_time">9:12 AM, Today</span>
+              </div>
+            </div><div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                  class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">
+                Bye, see you
+                <span class="msg_time">9:12 AM, Today</span>
+              </div>
+            </div>
+          </div> 
+          <div class="card-footer">
+            <form id="SendMsg">
+            <div class="input-group">
+              <input class="form-control type_msg" id="msg" placeholder="Type your message..." />
+              <div class="input-group-append">
+                <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End your project here-->
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+</body>
+
+</html>

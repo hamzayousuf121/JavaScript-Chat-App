@@ -1,0 +1,87 @@
+body{
+	box-sizing: border-box !important;
+	background: linear-gradient(60deg,#e61eb6,#20007e);
+	background: -webkit-linear-gradient(60deg,#e61eb6,#20007e);
+}
+.loginform{
+	height: 100vh !important;
+	overflow: hidden;
+}
+
+.maincontainer{
+	background-color: rgb(202, 50, 139);
+	border-radius: 20px;
+	
+}
+#signinWithFirebase{
+	-webkit-box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-transition: all 0.55s ease-in-out;
+    transition: all 0.55s ease-in-out;
+}
+.home__form {
+	/* display: flex; */
+	position: fixed;
+	bottom: 10px;
+	width: fit-content;
+
+	background: lightgray;
+	border-radius: 10px;
+	padding: 10px;
+	z-index: 1;
+}
+
+.btn-google{
+	background-color: white !important;
+	color: black !important;
+	padding: 2px !important;
+}
+
+.btn-facebook{
+	background-color: #1778F2 !important;
+	color: white !important;
+	padding: 12px !important;
+	
+}
+.rounded-circle{
+	width: 33px !important;
+    height: 32px !important;
+}
+
+.navbar-toggler{
+	color: white !important;
+}
+.wellcome{
+	position: absolute;
+	margin-top: 10px;
+	left: 40%;
+	font-weight: 900;
+}
+
+/* .msg_card_body {
+	margin-left: 30px;
+	float: left;
+	height: 80vh;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 35px;
+	margin-right: 10px;
+	overflow-y: scroll;
+} */
+
+/* .force-overflow {
+	margin-right: 15px;
+} */
+
+
+
+@media (max-width: 600px){
+
+	.wellcome{
+		font-size: 20px;
+		left: 27%;
+	}
+	.home--form{
+		width: 90%;
+	}
+}

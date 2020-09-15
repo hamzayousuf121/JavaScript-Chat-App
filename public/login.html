@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+
+  <title>Chat App</title>
+  <!-- MDB icon -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+</head>
+
+<body>
+
+  <!-- Start your project here-->
+  <div class="container loginform">
+    <div class="row ">
+      <div class=" mt-5 offset-lg-3 col-lg-6">
+        <!-- Default form login -->
+        <form class="text-center  p-5" id="signinWithFirebase">
+
+          <p class="h4 mb-4 text-white">Login Form</p>
+
+          <!-- Email -->
+          <input type="email" id="email" class="form-control mb-4" autocomplete="current-email" placeholder="E-mail">
+
+          <!-- Password -->
+          <input type="password" id="password" class="form-control mb-4" autocomplete="current-password"
+            placeholder="Password">
+
+          <div class="d-flex justify-content-around">
+
+          </div>
+
+          <!-- Sign in button -->
+          <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+          <button class="btn btn-google btn-block my-4 hoverable" onclick="SigninWithGoogle()" type="button">
+            <img src="./images/google.svg" style="font-size: '1.75rem' " />
+            Continue With Google</button>
+          <button class="btn btn-facebook btn-block my-4 hoverable" onclick="SigninWithFacebook()" type="button">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" font-size="1.75rem"
+              height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M426.8 64H85.2C73.5 64 64 73.5 64 85.2v341.6c0 11.7 9.5 21.2 21.2 21.2H256V296h-45.9v-56H256v-41.4c0-49.6 34.4-76.6 78.7-76.6 21.2 0 44 1.6 49.3 2.3v51.8h-35.3c-24.1 0-28.7 11.4-28.7 28.2V240h57.4l-7.5 56H320v152h106.8c11.7 0 21.2-9.5 21.2-21.2V85.2c0-11.7-9.5-21.2-21.2-21.2z">
+              </path>
+            </svg>
+            Continue With Facebook</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/auth.js"></script>
+
+</body>
+
+</html>
