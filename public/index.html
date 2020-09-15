@@ -17,9 +17,9 @@
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="css/mdb.min.css">
   <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v1.0">
 
-  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/chat.css?v1.0">
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
@@ -42,7 +42,7 @@
 
       </ul>
       <ul class="navbar-nav ml-auto nav-flex-icons">
-        <h5 class="text-center text-white wellcome">Wellcome <span id="username"></span></h5>
+        <h6 class="text-center text-white wellcome">Wellcome <span id="username"></span></h6>
         <li class="nav-item avatar dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
@@ -62,118 +62,33 @@
 
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-md-12 col-xl-8 col-12 chat">
+      <div class="col-md-12 col-xl-8 col-12 chat col-lg-8">
         <div class="card">
           <div class="card-header msg_head">
             <div class="d-flex bd-highlight">
 
               <div class="user_info">
-                <span>Saylani Group</span>
+                <span class="text-center">Saylani Group</span>
               </div>
 
             </div>
           </div>
           <div class="card-body msg_card_body" id="mainCard">
-            <div class="d-flex justify-content-start mb-4">
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                  class="rounded-circle user_img_msg">
-              </div>
-              <div class="msg_cotainer">
-                Hi, how are you samim?
-                <span class="msg_time">8:40 AM, Today</span>
-              </div>
-            </div>
-            <div class="d-flex justify-content-end mb-4">
-              <div class="msg_cotainer_send">
-                Hi Khalid i am good tnx how about you?
-                <span class="msg_time_send">8:55 AM, Today</span>
-              </div>
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
-              </div>
-            </div>
-            <div class="d-flex justify-content-start mb-4">
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                  class="rounded-circle user_img_msg">
-              </div>
-              <div class="msg_cotainer">
-                I am good too, thank you for your chat template
-                <span class="msg_time">9:00 AM, Today</span>
-              </div>
-            </div>
-            <div class="d-flex justify-content-end mb-4">
-              <div class="msg_cotainer_send">
-                You are welcome
-                <span class="msg_time_send">9:05 AM, Today</span>
-              </div>
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
-              </div>
-            </div>
-            <div class="d-flex justify-content-start mb-4">
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                  class="rounded-circle user_img_msg">
-              </div>
-              <div class="msg_cotainer">
-                I am looking for your next templates
-                <span class="msg_time">9:07 AM, Today</span>
-              </div>
-            </div>
-            <div class="d-flex justify-content-end mb-4">
-              <div class="msg_cotainer_send">
-                Ok, thank you have a good day
-                <span class="msg_time_send">9:10 AM, Today</span>
-              </div>
-              <div class="img_cont_msg">
-                <img src="" class="rounded-circle user_img_msg">
-              </div>
-            </div>
-            <div class="d-flex justify-content-start mb-4">
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                  class="rounded-circle user_img_msg">
-              </div>
-              <div class="msg_cotainer">
-                Bye, see you
-                <span class="msg_time">9:12 AM, Today</span>
-              </div>
-            </div>
-            <div class="d-flex justify-content-start mb-4">
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                  class="rounded-circle user_img_msg">
-              </div>
-              <div class="msg_cotainer">
-                Bye, see you
-                <span class="msg_time">9:12 AM, Today</span>
-              </div>
-            </div><div class="d-flex justify-content-start mb-4">
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                  class="rounded-circle user_img_msg">
-              </div>
-              <div class="msg_cotainer">
-                Bye, see you
-                <span class="msg_time">9:12 AM, Today</span>
-              </div>
-            </div>
-          </div> 
+
+          </div>
           <div class="card-footer">
             <form id="SendMsg">
-            <div class="input-group">
-              <input class="form-control type_msg" id="msg" placeholder="Type your message..." />
-              <div class="input-group-append">
-                <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
-              </div>
+              <div class="input-group">
+                <input class="form-control type_msg" id="msg" placeholder="Type your message..." />
+                <div class="input-group-append">
+                  <button class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                </div>
             </form>
-            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <!-- End your project here-->
   <!-- jQuery -->
@@ -182,8 +97,7 @@
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="js/script.js?v1.0"></script>
 </body>
 
 </html>

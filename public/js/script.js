@@ -14,6 +14,7 @@ firebase.initializeApp(firebaseConfig);
 
 
 firebase.auth().onAuthStateChanged(function(user) {
+
     if (user) {
       // User is signed in.
       var displayName = user.displayName;
@@ -23,14 +24,14 @@ firebase.auth().onAuthStateChanged(function(user) {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
-      console.log(user)
+      console.log(user, 'onAuthStateChanged')
       // ...
     } else {
       // User is signed out.
+      console.log('User is signed out')
       // ...
     }
-  });
-
+});
 var db = firebase.database().ref('messages');
 
 var cardContainer = document.getElementById('mainCard');
@@ -44,16 +45,19 @@ username.innerHTML = userInfo.name;
 var userName = userInfo.name
 userImg.src = userInfo.imageUrl;
 var imgUrl = userInfo.imageUrl
-console.log(imgUrl)
+var accessToken = userInfo.accessToken
 
-let signOut = () => {
+signOut = () => {
 
     firebase.auth().signOut().then(function () {
         // Sign-out successful.
         localStorage.removeItem('userInfo')
         location.href = '/login.html';
+        console.log('sign out Success Fully')
+
     }).catch(function (error) {
         // An error happened.
+        console.log(error)
     });
 }
 
@@ -61,17 +65,32 @@ let signOut = () => {
 // Get Messages
 db.on('child_added', function (snapshot) {
     var time = new Date(snapshot.val().timestamp).getFullYear()
-   var userCheck = (userName) ? `justify-content-end`: `justify-content-start`;
-    var cards = `<div class="d-flex ${userCheck} mb-4">
-                    <div class="img_cont_msg">
-                    <img src="${imgUrl}" class="rounded-circle user_img_msg">
-                    </div>
-                    <div class="msg_cotainer">
-                    ${snapshot.val().message}
-                    <span class="msg_time">${time}</span>
-                    </div>
-                </div>`;
+    if(accessToken === snapshot.val().token){
+
+        var cards = `<div class="d-flex justify-content-end mb-4">
+        <div class="msg_cotainer_send">
+         ${snapshot.val().message}
+          <span class="msg_time_send">${time}</span>
+        </div>
+        <div class="img_cont_msg">
+          <img src="${snapshot.val().imgUrl}" class="rounded-circle user_img_msg">
+        </div>
+      </div>`
+    }
+    else{
+        var cards = `<div class="d-flex justify-content-start mb-4">
+        <div class="img_cont_msg">
+        <img src="${snapshot.val().imgUrl}" class="rounded-circle user_img_msg">
+        </div>
+        <div class="msg_cotainer">
+        ${snapshot.val().message}
+        <span class="msg_time">${time}</span>
+        </div>
+    </div>`;
+    }
+ 
   cardContainer.innerHTML += cards;
+
     // auto scroll to bottom;
     scrollbar[0].scrollTop = scrollbar[0].scrollHeight;
 })
@@ -85,7 +104,9 @@ SendMsg.addEventListener('submit', (e) => {
     db.push({
         message: message.value,
         username: 'hamza',
-        timestamp: firebase.database.ServerValue.TIMESTAMP
+        timestamp: firebase.database.ServerValue.TIMESTAMP,
+        token: accessToken,
+        imgUrl: imgUrl
     })
         .then(function (docRef) {
             console.log("message sent");

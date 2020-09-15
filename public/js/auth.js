@@ -21,14 +21,20 @@ signinWithFirebase.addEventListener('submit', (event) => {
     event.preventDefault();
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then((user) => {
+            console.log(user)
+            const userInfo = {
+                name: user.displayName,
+                email: user.email,
+                imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt-F5GQg8qB2fWquF1ltQvAT2Z8Dv5pJLb9w&usqp=CAU',
+                // accessToken: user.credential.accessToken
+            }
+            localStorage.setItem('userInfo', JSON.stringify(userInfo))
             location.href = '/';
         })
         .catch(function (error) {
             // Handle Errors here.
             var errorMessage = error.message;
-            console.log(errorMessage)
-            location.href = '/login.html';
-
+            alert(errorMessage)
         });
 });
 
@@ -42,9 +48,8 @@ const SigninWithGoogle = () => {
     firebase.auth().signInWithPopup(provider)
         .then(function (result) {
             // This gives you a Google Access Token.
-            console.log(result.credential.accessToken);
             // The signed-in user info 
-
+            console.log('user login succesFully', result.user.displayName)
             const userInfo = {
                 name: result.user.displayName,
                 email: result.user.email,
@@ -57,7 +62,6 @@ const SigninWithGoogle = () => {
 }
 
 const SigninWithFacebook = () => {
-    console.log('agaya')
 
     var provider = new firebase.auth.FacebookAuthProvider();
 
@@ -65,13 +69,14 @@ const SigninWithFacebook = () => {
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         var token = result.credential.accessToken;
         // The signed-in user info.
-        // var user = result.user;
+         var user = result.user;
         const userInfo = {
-            name: result.user.displayName,
-            email: result.user.email,
-            imageUrl: result.user.photoURL,
+            name: user.displayName,
+            email: user.email,
+            imageUrl: user.photoURL,
             accessToken: result.credential.accessToken
         }
+        console.log(userInfo, 'usersInfo');
         localStorage.setItem('userInfo', JSON.stringify(userInfo))
         location.href = '/';
         // ...
