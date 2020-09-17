@@ -168,7 +168,7 @@ html {
 .msg_head {
 	position: relative;
 }
-#signinWithFirebase{
+#signinWithFirebase, #RegisterWithFirebase{
 	padding: 3rem;
 }
 @media (max-width: 576px) {
@@ -184,7 +184,7 @@ html {
 		left: 27%;
 	}
 
-	#signinWithFirebase{
+	#signinWithFirebase, #RegisterWithFirebase{
 		padding: 30px !important;
 	}
 }

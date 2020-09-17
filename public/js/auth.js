@@ -21,24 +21,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 var email = document.getElementById('email');
 var password = document.getElementById('password');
 var signinWithFirebase = document.getElementById('signinWithFirebase');
-var RegisterWithFirebase = document.getElementById('RegisterWithFirebase');
-
-
-//Register
-
-//firebase Auth
-RegisterWithFirebase.addEventListener('submit', (event) => {
-    event.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-        .then((user) => {
-            location.href = 'index.html';
-        })
-        .catch(function (error) {
-            // Handle Errors here.
-            var errorMessage = error.message;
-            alert(errorMessage)
-        });
-});
 
 
 //firebase Auth Login 
@@ -92,7 +74,7 @@ const SigninWithGoogle = () => {
         });
 }
 
-const SigninWithFacebook = () => {
+SigninWithFacebook = () => {
 
     var provider = new firebase.auth.FacebookAuthProvider();
 

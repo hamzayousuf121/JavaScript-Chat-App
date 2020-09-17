@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
         var providerData = user.providerData;
-        console.log(user, 'onAuthStateChanged')
+        console.log(user.displayName, 'onAuthStateChanged')
         // ...
     } else {
         // User is signed out.
@@ -52,7 +52,7 @@ signOut = () => {
     firebase.auth().signOut().then(function () {
         // Sign-out successful.
         localStorage.removeItem('userInfo')
-        location.href = '/login.html';
+        location.href = 'index.html';
         console.log('sign out Success Fully')
 
     }).catch(function (error) {
