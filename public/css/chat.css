@@ -141,6 +141,7 @@ html {
 .msg_cotainer_send {
 	margin-top: auto;
 	margin-bottom: auto;
+	text-align: end;
 	margin-right: 10px;
 	border-radius: 10px;
 	background-color: #78e08f;

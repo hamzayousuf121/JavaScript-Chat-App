@@ -13,23 +13,23 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
 
     if (user) {
-      // User is signed in.
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
-      console.log(user, 'onAuthStateChanged')
-      // ...
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        console.log(user, 'onAuthStateChanged')
+        // ...
     } else {
-      // User is signed out.
-      console.log('User is signed out')
-      // ...
+        // User is signed out.
+        console.log('User is signed out')
+        // ...
     }
 });
 var db = firebase.database().ref('messages');
@@ -65,7 +65,7 @@ signOut = () => {
 // Get Messages
 db.on('child_added', function (snapshot) {
     var time = new Date(snapshot.val().timestamp).toDateString()
-    if(accessToken === snapshot.val().token){
+    if (accessToken === snapshot.val().token) {
 
         var cards = `<div class="d-flex justify-content-end mb-4">
         <div class="msg_cotainer_send">
@@ -77,7 +77,7 @@ db.on('child_added', function (snapshot) {
         </div>
       </div>`
     }
-    else{
+    else {
         var cards = `<div class="d-flex justify-content-start mb-4">
         <div class="img_cont_msg">
         <img src="${snapshot.val().imgUrl}" class="rounded-circle user_img_msg">
@@ -88,8 +88,8 @@ db.on('child_added', function (snapshot) {
         </div>
     </div>`;
     }
- 
-  cardContainer.innerHTML += cards;
+
+    cardContainer.innerHTML += cards;
 
     // auto scroll to bottom;
     scrollbar[0].scrollTop = scrollbar[0].scrollHeight;

@@ -11,10 +11,10 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      location.href = 'chat.html'
-      // ...
+        location.href = 'chat.html'
+        // ...
     }
 });
 
@@ -40,7 +40,8 @@ RegisterWithFirebase.addEventListener('submit', (event) => {
         });
 });
 
-//firebase Auth
+
+//firebase Auth Login 
 signinWithFirebase.addEventListener('submit', (event) => {
     event.preventDefault();
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
@@ -83,7 +84,7 @@ const SigninWithGoogle = () => {
             localStorage.setItem('userInfo', JSON.stringify(userInfo))
             location.href = 'chat.html';
         })
-        .catch((error) =>  {
+        .catch((error) => {
             // Handle Errors here.
             var errorMessage = error.message;
 
@@ -95,11 +96,11 @@ const SigninWithFacebook = () => {
 
     var provider = new firebase.auth.FacebookAuthProvider();
 
-    firebase.auth().signInWithPopup(provider).then(function(result) {
+    firebase.auth().signInWithPopup(provider).then(function (result) {
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         var token = result.credential.accessToken;
         // The signed-in user info.
-         var user = result.user;
+        var user = result.user;
         const userInfo = {
             name: user.displayName,
             email: user.email,
@@ -110,7 +111,7 @@ const SigninWithFacebook = () => {
         localStorage.setItem('userInfo', JSON.stringify(userInfo))
         location.href = 'chat.html';
         // ...
-      }).catch(function(error) {
+    }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -120,6 +121,6 @@ const SigninWithFacebook = () => {
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
-      });
+    });
 }
 
