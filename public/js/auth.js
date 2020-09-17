@@ -11,15 +11,39 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      location.href = 'chat.html'
+      // ...
+    }
+});
 
 var email = document.getElementById('email');
 var password = document.getElementById('password');
 var signinWithFirebase = document.getElementById('signinWithFirebase');
+var RegisterWithFirebase = document.getElementById('RegisterWithFirebase');
+
+
+//Register
+
+//firebase Auth
+RegisterWithFirebase.addEventListener('submit', (event) => {
+    event.preventDefault();
+    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+        .then((user) => {
+            location.href = 'index.html';
+        })
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorMessage = error.message;
+            alert(errorMessage)
+        });
+});
 
 //firebase Auth
 signinWithFirebase.addEventListener('submit', (event) => {
     event.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         .then((user) => {
             console.log(user)
             const userInfo = {
@@ -29,7 +53,7 @@ signinWithFirebase.addEventListener('submit', (event) => {
                 // accessToken: user.credential.accessToken
             }
             localStorage.setItem('userInfo', JSON.stringify(userInfo))
-            location.href = '/';
+            location.href = 'chat.html';
         })
         .catch(function (error) {
             // Handle Errors here.
@@ -57,7 +81,13 @@ const SigninWithGoogle = () => {
                 accessToken: result.credential.accessToken
             }
             localStorage.setItem('userInfo', JSON.stringify(userInfo))
-            location.href = '/';
+            location.href = 'chat.html';
+        })
+        .catch((error) =>  {
+            // Handle Errors here.
+            var errorMessage = error.message;
+
+            alert(errorMessage)
         });
 }
 
@@ -78,12 +108,13 @@ const SigninWithFacebook = () => {
         }
         console.log(userInfo, 'usersInfo');
         localStorage.setItem('userInfo', JSON.stringify(userInfo))
-        location.href = '/';
+        location.href = 'chat.html';
         // ...
       }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
+        alert(errorMessage)
         // The email of the user's account used.
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.

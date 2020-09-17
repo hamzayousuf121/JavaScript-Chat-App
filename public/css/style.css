@@ -3,9 +3,15 @@ body{
 	background: linear-gradient(60deg,#e61eb6,#20007e);
 	background: -webkit-linear-gradient(60deg,#e61eb6,#20007e);
 }
+.signinbtn{
+	background: linear-gradient(175deg,#e61eb6,#20007e);
+	color: white !important;
+}
+
 .loginform{
 	height: 100vh !important;
 	overflow: hidden;
+	padding: 10px;
 }
 
 .maincontainer{
@@ -19,17 +25,7 @@ body{
     -webkit-transition: all 0.55s ease-in-out;
     transition: all 0.55s ease-in-out;
 }
-.home__form {
-	/* display: flex; */
-	position: fixed;
-	bottom: 10px;
-	width: fit-content;
 
-	background: lightgray;
-	border-radius: 10px;
-	padding: 10px;
-	z-index: 1;
-}
 
 .btn-google{
 	background-color: white !important;
@@ -58,30 +54,9 @@ body{
 	font-weight: 900;
 }
 
-/* .msg_card_body {
-	margin-left: 30px;
-	float: left;
-	height: 80vh;
-	width: 100%;
-	background: #fff;
-	margin-bottom: 35px;
-	margin-right: 10px;
-	overflow-y: scroll;
-} */
+@media (max-width: 576px) {
 
-/* .force-overflow {
-	margin-right: 15px;
-} */
-
-
-
-@media (max-width: 600px){
-
-	.wellcome{
-		font-size: 20px;
-		left: 27%;
-	}
-	.home--form{
-		width: 90%;
+	#signinWithFirebase{
+		padding: 30px !important;
 	}
 }

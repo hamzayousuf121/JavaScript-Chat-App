@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+
   <title>Chat App</title>
   <!-- MDB icon -->
   <!-- Font Awesome -->
@@ -17,87 +18,53 @@
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="css/mdb.min.css">
   <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="css/style.css?v1.0">
+  <link rel="stylesheet" href="css/style.css?v1.1">
 
-  <link rel="stylesheet" href="css/chat.css?v1.0">
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
-
 </head>
 
 <body>
 
-  <!--Navbar -->
-  <nav class="mb-1 navbar navbar-expand-md navbar-dark lighten-1 fixed">
-    <a class="navbar-brand" href="#"><img src="images/Saylani-logo.png" class="img-fluid z-depth-0 ml-5" width="150"
-        height="150" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-      <ul class="navbar-nav ">
-
-      </ul>
-      <ul class="navbar-nav ml-auto nav-flex-icons">
-        <h6 class="text-center text-white wellcome">Wellcome <span id="username"></span></h6>
-        <li class="nav-item avatar dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <img src="" id="userImg" class="rounded-circle z-depth-0" width="100" height="100" alt="avatar image">
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
-            aria-labelledby="navbarDropdownMenuLink-55">
-            <a class="dropdown-item" onclick="signOut()" href="javascript:void()">Log out</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!--/.Navbar -->
-
   <!-- Start your project here-->
+  <div class="container loginform">
+    <div class="row">
+      <div class=" mt-5 offset-lg-3 col-lg-6 col-md-12 col-12">
+        <!-- Default form login -->
+        <form class="text-center " id="signinWithFirebase">
 
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-md-12 col-xl-8 col-12 chat col-lg-8">
-        <div class="card">
-          <div class="card-header msg_head">
-            <div class="d-flex bd-highlight">
+          <p class="h4 mb-4 text-white">Login Form</p>
 
-              <div class="user_info">
-                <span class="text-center">Saylani Group</span>
-              </div>
+          <!-- Email -->
+          <input type="email" id="email" class="form-control mb-4" autocomplete="current-email" placeholder="E-mail">
 
-            </div>
-          </div>
-          <div class="card-body msg_card_body" id="mainCard">
+          <!-- Password -->
+          <input type="password" id="password" class="form-control mb-4" autocomplete="current-password"
+            placeholder="Password">
 
-          </div>
-          <div class="card-footer">
-            <form id="SendMsg">
-              <div class="input-group">
-                <input class="form-control type_msg" id="msg" placeholder="Type your message..." />
-                <div class="input-group-append">
-                  <button class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
-                </div>
-            </form>
-          </div>
-        </div>
+          <!-- Sign in button -->
+          <button class="btn signinbtn btn-block my-4" type="submit">Sign In</button>
+          <a href="./register.html" class="text-white m-5">Don't have an Account</a>
+
+          <button class="btn btn-google btn-block my-4 hoverable" onclick="SigninWithGoogle()" type="button">
+            <img src="./images/google.svg" style="font-size: '1.75rem' " />
+            Continue With Google</button>
+          <button class="btn btn-facebook btn-block my-4 hoverable" onclick="SigninWithFacebook()" type="button">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" font-size="1.75rem"
+              height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M426.8 64H85.2C73.5 64 64 73.5 64 85.2v341.6c0 11.7 9.5 21.2 21.2 21.2H256V296h-45.9v-56H256v-41.4c0-49.6 34.4-76.6 78.7-76.6 21.2 0 44 1.6 49.3 2.3v51.8h-35.3c-24.1 0-28.7 11.4-28.7 28.2V240h57.4l-7.5 56H320v152h106.8c11.7 0 21.2-9.5 21.2-21.2V85.2c0-11.7-9.5-21.2-21.2-21.2z">
+              </path>
+            </svg>
+            Continue With Facebook</button>
+        </form>
       </div>
     </div>
   </div>
-  </div>
-  <!-- End your project here-->
-  <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
 
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/script.js?v1.0"></script>
+  <script src="./js/auth.js"></script>
+
 </body>
 
 </html>

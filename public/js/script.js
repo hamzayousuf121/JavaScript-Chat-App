@@ -64,7 +64,7 @@ signOut = () => {
 
 // Get Messages
 db.on('child_added', function (snapshot) {
-    var time = new Date(snapshot.val().timestamp).getFullYear()
+    var time = new Date(snapshot.val().timestamp).toDateString()
     if(accessToken === snapshot.val().token){
 
         var cards = `<div class="d-flex justify-content-end mb-4">
