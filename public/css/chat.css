@@ -81,6 +81,7 @@ html {
 	cursor: pointer;
 	outline: none !important;
 	border: none !important;
+	font-size: 25px !important;
 }
 
 .contacts {
@@ -180,11 +181,15 @@ html {
 	}
 	
 	.wellcome{
-		font-size: 20px;
-		left: 27%;
+		font-size: 12px;
+		top: 15px;
 	}
 
 	#signinWithFirebase, #RegisterWithFirebase{
 		padding: 30px !important;
+	}
+	.navbar-brand img{
+		margin-left: 0 !important;
+		width: 100px;
 	}
 }
