@@ -12,9 +12,10 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
+var uid = '';
 firebase.auth().onAuthStateChanged(function (user) {
 
+    
     if (user) {
         // User is signed in.
         var displayName = user.displayName;
@@ -22,7 +23,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         var emailVerified = user.emailVerified;
         var photoURL = user.photoURL;
         var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
+        uid = user.uid;
         var providerData = user.providerData;
         console.log(user.displayName, 'onAuthStateChanged')
         // ...
@@ -43,9 +44,9 @@ var userImg = document.getElementById('userImg');
 let userInfo = localStorage.getItem('userInfo')
 userInfo = JSON.parse(userInfo)
 username.innerHTML = userInfo.name;
-var userName = userInfo.name
-userImg.src = userInfo.imageUrl;
+var userName = (userInfo.name) ? userInfo.name : 'user'
 var imgUrl = userInfo.imageUrl
+userImg.src = imgUrl;
 var accessToken = userInfo.accessToken
 
 signOut = () => {
@@ -56,20 +57,22 @@ signOut = () => {
         location.href = 'index.html';
         console.log('sign out Success Fully')
 
-    }).catch(function (error) {
+    })
+    .catch(function (error) {
         // An error happened.
         console.log(error)
-    });
+    })
 }
 
 
 // Get Messages
 db.on('child_added', function (snapshot) {
     var time = new Date(snapshot.val().timestamp).toDateString()
-    if (accessToken === snapshot.val().token) {
+    if (uid === snapshot.val().token) {
 
         var cards = `<div class="d-flex justify-content-end mb-4">
         <div class="msg_cotainer_send">
+        <div class="username_small">~${snapshot.val().username}</div>
          ${snapshot.val().message}
           <span class="msg_time_send">${time}</span>
         </div>
@@ -84,6 +87,7 @@ db.on('child_added', function (snapshot) {
         <img src="${snapshot.val().imgUrl}" class="rounded-circle user_img_msg">
         </div>
         <div class="msg_cotainer">
+        <div class="username_small">~${snapshot.val().username}</div>
         ${snapshot.val().message}
         <span class="msg_time">${time}</span>
         </div>
@@ -101,12 +105,13 @@ var SendMsg = document.getElementById('SendMsg');
 SendMsg.addEventListener('submit', (e) => {
     e.preventDefault();
     var message = document.getElementById('msg');
+    var uId = uid;
     // add Messages 
     db.push({
         message: message.value,
-        username: 'hamza',
+        username: userName,
         timestamp: firebase.database.ServerValue.TIMESTAMP,
-        token: accessToken,
+        token: uId,
         imgUrl: imgUrl
     })
         .then(function (docRef) {

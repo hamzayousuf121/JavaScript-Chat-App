@@ -7,8 +7,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
 
-  <title>Login Form</title>
- 
+  <title>Login Form</title> 
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <!-- Material Design Bootstrap -->
@@ -26,22 +27,11 @@
   <!-- Start your project here-->
   <div class="container loginform">
     <div class="row">
-      <div class=" mt-5 offset-lg-3 col-lg-6 col-md-12 col-12">
+      <div class="mt-5 offset-lg-3 col-lg-6 col-md-12 col-12">
         <!-- Default form login -->
-        <form class="text-center " id="signinWithFirebase">
+        <form class="text-center p-5" id="signinWithFirebase">
 
-          <p class="h4 mb-4 text-white">Login Form</p>
-
-          <!-- Email -->
-          <input type="email" id="email" class="form-control mb-4" autocomplete="current-email" placeholder="E-mail">
-
-          <!-- Password -->
-          <input type="password" id="password" class="form-control mb-4" autocomplete="current-password"
-            placeholder="Password">
-
-          <!-- Sign in button -->
-          <button class="btn signinbtn btn-block my-4" type="submit">Sign In</button>
-          <a href="./register.html" class="text-white m-5">Don't have an Account</a>
+          <h1 class="h4 mb-4 text-white">Login Form</h1>
 
           <button class="btn btn-google btn-block my-4 hoverable" onclick="SigninWithGoogle()" type="button">
             <img src="./images/google.svg" style="font-size: '1.75rem' " />
@@ -54,6 +44,9 @@
               </path>
             </svg>
             Continue With Facebook</button>
+            <!--Facebook-->
+            <button class="btn btn-github btn-block my-4 hoverable" 
+            onclick="loginWithGithub()"> <i class="fa fa-github"></i>Continue with Github</button>
         </form>
       </div>
     </div>

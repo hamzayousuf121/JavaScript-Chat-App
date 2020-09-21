@@ -39,6 +39,16 @@ body{
 	padding: 12px !important;
 	
 }
+.btn-github{
+	background-color: black !important;
+	color: white !important;
+	padding: 12px !important;
+}
+.fa-github{
+font-size: 22px;
+padding-right: 10px;
+padding-top: 5px;
+}
 .rounded-circle{
 	width: 33px !important;
     height: 32px !important;

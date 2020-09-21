@@ -172,6 +172,11 @@ html {
 #signinWithFirebase, #RegisterWithFirebase{
 	padding: 3rem;
 }
+.username_small{
+	position: relative;
+    font-size: 10px;
+    top: -7px;
+}
 @media (max-width: 576px) {
 	.contacts_card {
 		margin-bottom: 15px !important;
@@ -181,8 +186,7 @@ html {
 	}
 	
 	.wellcome{
-		font-size: 12px;
-		top: 15px;
+		display: none;
 	}
 
 	#signinWithFirebase, #RegisterWithFirebase{
@@ -190,6 +194,6 @@ html {
 	}
 	.navbar-brand img{
 		margin-left: 0 !important;
-		width: 100px;
+		width: 90px;
 	}
 }
