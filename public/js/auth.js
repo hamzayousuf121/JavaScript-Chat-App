@@ -17,12 +17,13 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
+var error = document.getElementById('error');
 
 loginWithGithub = () => {
 
     var provider = new firebase.auth.GithubAuthProvider();
-    
-    firebase.auth().signInWithPopup(provider).then(function (result) {
+        
+    firebase.auth().signInWithPopup(provider).then(function(result) {
         // The signed-in user info.
         var user = result.user;
         console.log('Github Sign in', user)
@@ -39,7 +40,7 @@ loginWithGithub = () => {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert(errorMessage);
+        error.innerHTML = errorMessage
 
     });
 
@@ -67,10 +68,12 @@ const SigninWithGoogle = () => {
         .catch((error) => {
             // Handle Errors here.
             var errorMessage = error.message;
-
-            alert(errorMessage)
+            error.innerHTML = errorMessage
         });
 }
+
+
+
 
 SigninWithFacebook = () => {
 
@@ -93,7 +96,8 @@ SigninWithFacebook = () => {
     }).catch(function (error) {
         // Handle Errors here.
         var errorMessage = error.message;
-        alert(errorMessage)
+        error.innerHTML = errorMessage
+
     });
 
 }

@@ -29,7 +29,7 @@
     <div class="row">
       <div class="mt-5 offset-lg-3 col-lg-6 col-md-12 col-12">
         <!-- Default form login -->
-        <form class="text-center p-5" id="signinWithFirebase">
+        <div class="text-center p-5" id="signinWithFirebase">
 
           <h1 class="h4 mb-4 text-white">Login Form</h1>
 
@@ -47,11 +47,13 @@
             <!--Facebook-->
             <button class="btn btn-github btn-block my-4 hoverable" 
             onclick="loginWithGithub()"> <i class="fa fa-github"></i>Continue with Github</button>
+            <p class="text-white" id="error"></p>
+
         </form>
+
       </div>
     </div>
   </div>
-
   <script src="./js/auth.js"></script>
 
 </body>

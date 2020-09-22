@@ -13,9 +13,35 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var uid = '';
+
+loginWithGithub = () => {
+
+    var provider = new firebase.auth.GithubAuthProvider();
+        
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // The signed-in user info.
+        var user = result.user;
+        console.log('Github Sign in', user)
+
+        const userInfo = {
+            name: user.displayName,
+            email: user.email,
+            imageUrl: user.photoURL,
+        }
+        localStorage.setItem('userInfo', JSON.stringify(userInfo))
+        location.href = 'chat.html';
+
+    }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        error.innerHTML = errorMessage
+
+    });
+
+}
 firebase.auth().onAuthStateChanged(function (user) {
 
-    
     if (user) {
         // User is signed in.
         var displayName = user.displayName;
