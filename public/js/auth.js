@@ -1,12 +1,12 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyAXiXXXA75Lqor40jktxg0OIIi-1lZbMxs",
+    apiKey: "",
     authDomain: "saylani-chatapp.firebaseapp.com",
-    databaseURL: "https://saylani-chatapp.firebaseio.com",
-    projectId: "saylani-chatapp",
-    storageBucket: "saylani-chatapp.appspot.com",
-    messagingSenderId: "8174274245",
-    appId: "1:8174274245:web:d11d0de2ca6ea4236b12ac",
-    measurementId: "G-J88EVCMN44"
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
